@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  baseURL: 'https://frontend-puce-seven-74.vercel.app/api',
   timeout: 90000,
 })
 
@@ -24,7 +24,7 @@ export const generateReport = async (files, athleteProfile) => {
 
 export const downloadReportPDF = async reportId => {
   const response = await axios.get(
-    `${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/report/${reportId}/export`,
+    `${import.meta.env.VITE_API_URL || 'https://frontend-puce-seven-74.vercel.app/api'}/report/${reportId}/export`,
     { responseType: 'blob' }
   )
   const url  = window.URL.createObjectURL(new Blob([response.data]))
